@@ -10,3 +10,56 @@
 3.	определение значимости признаков для индекса;
 4.	составление словаря;
 5.	сохранение индекса в БД.
+
+## Ход решения
+
+Для обхода страниц добавлен класс `Downloder`. В данном классе есть приватный метод `_wget_dl()`, кторый составляет запрос командной строки и соверщает этот запрос с помощью `subprocess.call()`.
+
+Для обхода и копирования страниц используется утилита `wget`.
+
+```python
+class Downloder():
+    def download_manager(self, url, destination='Files/DownloderApp/', depth="1", try_number="10", time_out="60"):
+
+        if self._wget_dl(url, destination, depth, try_number, time_out) == 0:
+            return True
+        else:
+            return False
+
+
+    def _wget_dl(self,url, destination, depth, try_number, time_out):
+        import subprocess
+        command=["wget", "-r", "-l", depth, "-c", "-P", destination, "-t", try_number, "-T", time_out , url]
+        try:
+            download_state=subprocess.call(command)
+        except Exception as e:
+            print(e)
+        return download_state
+```
+
+Рассмотрим используемые параметры:
+* -r	—	указывает на то, что нужно рекурсивно переходить по ссылкам на сайте, чтобы скачивать страницы.
+* -p	—	указывает на то, что нужно загрузить все файлы, которые требуются для отображения страниц (изображения, css и т.д.).
+* -l	—	определяет максимальную глубину вложенности страниц, которые wget должен скачать (по умолчанию значение равно 5, * в данном случае установлено значение 1).
+* -nc	—	при использовании данного параметра существующие файлы не будут перезаписаны. Это удобно, когда нужно продолжить загрузку сайта, прерванную в предыдущий раз.
+
+Перед вызовом метода класса необходимо получить ткущую деррикторию.
+
+```python
+currentDir = os.getcwd()
+dwnDir = currentDir + '/Files/DownloderApp/'
+```
+
+Затем происходит вызов метода `download_manager()` с параметрами `url` и `destination`.
+
+```python
+x = Downloder()
+x.download_manager('http://samlib.ru/', dwnDir)
+```
+
+Процесс выполнения запроса
+![](img/wgetProcess.png)
+
+## Результат работы
+## Анализ результатов
+## Текст программы
