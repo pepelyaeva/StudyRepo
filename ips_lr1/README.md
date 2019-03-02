@@ -59,6 +59,7 @@ x.download_manager('http://samlib.ru/', dwnDir)
 ```
 
 Процесс выполнения запроса
+
 ![](img/wgetProcess.png)
 
 ## Результат работы
