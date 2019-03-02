@@ -62,6 +62,29 @@ x.download_manager('http://samlib.ru/', dwnDir)
 
 ![](img/wgetProcess.png)
 
+Для определения всего текста страницы используется библиотека `BeautifulSoup`.
+
+```python
+def tag_visible(element):
+    if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
+        return False
+    if isinstance(element, Comment):
+        return False
+    return True
+```
+
+```python
+def text_from_html(body):
+    soup = BeautifulSoup(body, 'html.parser')
+    texts = soup.findAll(text=True)
+    visible_texts = filter(tag_visible, texts)
+    return u" ".join(t.strip() for t in visible_texts)
+```
+
+В результате получен весь текст страницы
+
+![](img/bs4res.png)
+
 ## Результат работы
 ## Анализ результатов
 ## Текст программы
