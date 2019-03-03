@@ -14,28 +14,27 @@
 
 ## Ход решения
 
-Для обхода страниц добавлен класс `Downloder`. В данном классе есть приватный метод `_wget_dl()`, кторый составляет запрос командной строки и соверщает этот запрос с помощью `subprocess.call()`.
+Для обхода страниц добавлен метод `_wget_dl()`, кторый составляет запрос командной строки и соверщает этот запрос с помощью `subprocess.call()`.
 
 Для обхода и копирования страниц используется утилита `wget`.
 
 ```python
-class Downloder():
-    def download_manager(self, url, destination='Files/DownloderApp/', depth="1", try_number="10", time_out="60"):
+def download_manager(self, url, destination='Files/DownloderApp/', depth="1", try_number="10", time_out="60"):
 
-        if self._wget_dl(url, destination, depth, try_number, time_out) == 0:
-            return True
-        else:
-            return False
+    if self._wget_dl(url, destination, depth, try_number, time_out) == 0:
+        return True
+    else:
+        return False
 
 
-    def _wget_dl(self,url, destination, depth, try_number, time_out):
-        import subprocess
-        command=["wget", "-r", "-l", depth, "-c", "-P", destination, "-t", try_number, "-T", time_out , url]
-        try:
-            download_state=subprocess.call(command)
-        except Exception as e:
-            print(e)
-        return download_state
+def _wget_dl(self, url, destination, depth, try_number, time_out):
+    import subprocess
+    command=["wget", "-r", "-l", depth, "-c", "-P", destination, "-t", try_number, "-T", time_out , url]
+    try:
+        download_state=subprocess.call(command)
+    except Exception as e:
+        print(e)
+    return download_state
 ```
 
 Рассмотрим используемые параметры:
@@ -54,8 +53,7 @@ dwnDir = currentDir + '/Files/DownloderApp/'
 Затем происходит вызов метода `download_manager()` с параметрами `url` и `destination`.
 
 ```python
-x = Downloder()
-x.download_manager('http://samlib.ru/', dwnDir)
+download_manager('http://samlib.ru/', dwnDir)
 ```
 
 Процесс выполнения запроса
@@ -84,6 +82,39 @@ def text_from_html(body):
 В результате получен весь текст страницы
 
 ![](img/bs4res.png)
+
+Далее необходимо разбить текст на слова и удалить стоп слова с помощью библиотеки `nltk`. При этом также удаляются слова, состоящие из одной буквы а также слова, содержащие цифры.
+
+```python
+from nltk.corpus import stopwords
+from nltk.tokenize import RegexpTokenizer
+
+tokenizer = RegexpTokenizer(r'\w+')
+
+stopWords = set(stopwords.words('russian'))
+words = tokenizer.tokenize(text)
+wordsFiltered = []
+
+for w in words:
+    if w not in stopWords and len(w) > 2 and w.isalpha():
+        wordsFiltered.append(w)
+```
+
+Для подсчета слов необходимо привести их в начальную форму, для этого используется библиотека `pymorphy2`.
+Добавим подсчет слов, увеличивая значение в коллекции по ключу. В качестве ключей используются список нормализованных слов, полученных на предыдущем этапе.
+
+```python
+for a in wordsFiltered:
+    try:
+        te.append(morph.parse(str(a))[0].inflect({'sing', 'nomn'}).word)
+    except Exception:
+        continue
+
+for t1 in te: arr[t1] += 1
+```
+
+В результате получен массив ключевых слов.
+![](img/countwrd.png)
 
 ## Результат работы
 ## Анализ результатов
