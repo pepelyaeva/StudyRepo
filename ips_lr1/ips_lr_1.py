@@ -25,67 +25,77 @@ dwnDir = currentDir + '/Files/DownloderApp/'
 
 # download_manager('http://samlib.ru/', dwnDir)
 
-f = codecs.open(dwnDir + "\samlib.ru\index.html", 'r')
+folder = []
+for i in os.walk(dwnDir):
+    folder.append(i)
 
+# Run all files
+for address, dirs, files in folder:
+    for file in files:
+        print(address+'/'+file)
 
-from bs4 import BeautifulSoup
-from bs4.element import Comment
+    f = codecs.open(address+'/'+file, 'r')
 
-def tag_visible(element):
-    if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
-        return False
-    if isinstance(element, Comment):
-        return False
-    return True
+    # Get all body text
+    from bs4 import BeautifulSoup
+    from bs4.element import Comment
 
-def text_from_html(body):
-    soup = BeautifulSoup(body, 'html.parser')
-    texts = soup.findAll(text=True)
-    visible_texts = filter(tag_visible, texts)
-    return u" ".join(t.strip() for t in visible_texts)
-text = text_from_html(f)
+    def tag_visible(element):
+        if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
+            return False
+        if isinstance(element, Comment):
+            return False
+        return True
 
-# print(text)
-# input()
-##########
+    def text_from_html(body):
+        soup = BeautifulSoup(body, 'html.parser')
+        texts = soup.findAll(text=True)
+        visible_texts = filter(tag_visible, texts)
+        return u" ".join(t.strip() for t in visible_texts)
+    text = text_from_html(f)
 
-import re
-from nltk.corpus import stopwords
-from nltk.tokenize import RegexpTokenizer
+    # print(text)
+    # input()
+    ##########
 
-tokenizer = RegexpTokenizer(r'\w+')
+    # Tokenize body text
+    import re
+    from nltk.corpus import stopwords
+    from nltk.tokenize import RegexpTokenizer
 
-stopWords = set(stopwords.words('russian'))
-words = tokenizer.tokenize(text)
-wordsFiltered = []
- 
-for w in words:
-    if w not in stopWords and len(w) > 2 and w.isalpha():
-        wordsFiltered.append(w)
- 
-# print(wordsFiltered)
+    tokenizer = RegexpTokenizer(r'\w+')
 
-#####
+    stopWords = set(stopwords.words('russian'))
+    words = tokenizer.tokenize(text)
+    wordsFiltered = []
+    
+    for w in words:
+        if w not in stopWords and len(w) > 2 and w.isalpha():
+            wordsFiltered.append(w)
+    
+    # print(wordsFiltered)
 
-from rutermextract import TermExtractor
-import pymorphy2
-import re, collections
+    #####
 
-arr = collections.defaultdict(int)
-res_dict={}
-morph = pymorphy2.MorphAnalyzer()
+    # Get initial form, count words
+    from rutermextract import TermExtractor
+    import pymorphy2
+    import re, collections
 
-te=[]
-# print(len(wordsFiltered))
-for a in wordsFiltered:
-    try:
-        te.append(morph.parse(str(a))[0].inflect({'sing', 'nomn'}).word)
-    except Exception:
-        continue
+    arr = collections.defaultdict(int)
+    res_dict={}
+    morph = pymorphy2.MorphAnalyzer()
 
-for t1 in te: arr[t1] += 1
+    te=[]
+    for a in wordsFiltered:
+        try:
+            te.append(morph.parse(str(a))[0].inflect({'sing', 'nomn'}).word)
+        except Exception:
+            continue
 
-l = lambda x: x[1]
-print( *sorted(arr.items(), key=l, reverse=True), '\n' )
+    for t1 in te: arr[t1] += 1
+
+    l = lambda x: x[1]
+    print( *sorted(arr.items(), key=l, reverse=True), '\n' )
 
 input()

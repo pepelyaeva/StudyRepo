@@ -60,6 +60,17 @@ download_manager('http://samlib.ru/', dwnDir)
 
 ![](img/wgetProcess.png)
 
+Добавим цикл для обхода всех файлов в созданной дирректории
+
+```python
+folder = []
+for i in os.walk(dwnDir):
+    folder.append(i)
+for address, dirs, files in folder:
+    for file in files:
+        print(address+'/'+file)
+```
+
 Для определения всего текста страницы используется библиотека `BeautifulSoup`.
 
 ```python
@@ -114,6 +125,7 @@ for t1 in te: arr[t1] += 1
 ```
 
 В результате получен массив ключевых слов.
+
 ![](img/countwrd.png)
 
 ## Результат работы
