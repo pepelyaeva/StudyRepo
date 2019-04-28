@@ -1,12 +1,15 @@
 import os
 currentDir = os.getcwd()
 dwnDir = currentDir + '/Files/DownloderApp/'
+fw = open(currentDir + "\\txt1.txt","w+")
 
 folder = []
 for i in os.walk(dwnDir):
     folder.append(i)
-print(folder)
-for address, dirs, files in folder:
-    for file in files:
-        print(address+'/'+file)
+
+# for address, dirs, files in folder:
+#     for file in files:
+fw.write('сроврап вапруло')
+fw.close()
+print('complite')
 input()

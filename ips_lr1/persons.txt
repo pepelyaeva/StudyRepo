@@ -1,0 +1,412 @@
+[
+  {
+    "name": "люба",
+    "scope": 2,
+    "textID": 0
+  },
+  {
+    "name": "эльма",
+    "scope": 93,
+    "textID": 1
+  },
+  {
+    "name": "гера",
+    "scope": 11,
+    "textID": 1
+  },
+  {
+    "name": "вика",
+    "scope": 8,
+    "textID": 1
+  },
+  {
+    "name": "люба",
+    "scope": 3,
+    "textID": 1
+  },
+  {
+    "name": "линда",
+    "scope": 5,
+    "textID": 1
+  },
+  {
+    "name": "надежда",
+    "scope": 2,
+    "textID": 1
+  },
+  {
+    "name": "люба",
+    "scope": 2,
+    "textID": 5
+  },
+  {
+    "name": "этиоля",
+    "scope": 2,
+    "textID": 6
+  },
+  {
+    "name": "фагенгис",
+    "scope": 2,
+    "textID": 9
+  },
+  {
+    "name": "санрайса",
+    "scope": 2,
+    "textID": 9
+  },
+  {
+    "name": "кирина",
+    "scope": 113,
+    "textID": 9
+  },
+  {
+    "name": "кирина",
+    "scope": 113,
+    "textID": 9
+  },
+  {
+    "name": "надежда",
+    "scope": 4,
+    "textID": 9
+  },
+  {
+    "name": "ясмина",
+    "scope": 3,
+    "textID": 9
+  },
+  {
+    "name": "рина",
+    "scope": 4,
+    "textID": 9
+  },
+  {
+    "name": "алиса",
+    "scope": 18,
+    "textID": 9
+  },
+  {
+    "name": "люба",
+    "scope": 2,
+    "textID": 9
+  },
+  {
+    "name": "мередисса",
+    "scope": 2,
+    "textID": 9
+  },
+  {
+    "name": "костя",
+    "scope": 4,
+    "textID": 9
+  },
+  {
+    "name": "нана",
+    "scope": 28,
+    "textID": 9
+  },
+  {
+    "name": "чарльз",
+    "scope": 7,
+    "textID": 9
+  },
+  {
+    "name": "рафаэль",
+    "scope": 9,
+    "textID": 9
+  },
+  {
+    "name": "анна",
+    "scope": 2,
+    "textID": 9
+  },
+  {
+    "name": "анна",
+    "scope": 2,
+    "textID": 10
+  },
+  {
+    "name": "розина",
+    "scope": 4,
+    "textID": 11
+  },
+  {
+    "name": "изабелла",
+    "scope": 2,
+    "textID": 11
+  },
+  {
+    "name": "валентин",
+    "scope": 2,
+    "textID": 11
+  },
+  {
+    "name": "люба",
+    "scope": 2,
+    "textID": 11
+  },
+  {
+    "name": "зоя",
+    "scope": 11,
+    "textID": 11
+  },
+  {
+    "name": "константин",
+    "scope": 9,
+    "textID": 11
+  },
+  {
+    "name": "владислав",
+    "scope": 2,
+    "textID": 11
+  },
+  {
+    "name": "тарас",
+    "scope": 5,
+    "textID": 11
+  },
+  {
+    "name": "гера",
+    "scope": 6,
+    "textID": 12
+  },
+  {
+    "name": "инвернесса",
+    "scope": 2,
+    "textID": 12
+  },
+  {
+    "name": "оля",
+    "scope": 2,
+    "textID": 13
+  },
+  {
+    "name": "миша",
+    "scope": 2,
+    "textID": 13
+  },
+  {
+    "name": "надя",
+    "scope": 2,
+    "textID": 13
+  },
+  {
+    "name": "люба",
+    "scope": 4,
+    "textID": 16
+  },
+  {
+    "name": "лилия",
+    "scope": 2,
+    "textID": 16
+  },
+  {
+    "name": "сергей",
+    "scope": 5,
+    "textID": 18
+  },
+  {
+    "name": "адибек",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "адибек",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "игорь",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "артюха",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "семён",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "кондрат",
+    "scope": 8,
+    "textID": 18
+  },
+  {
+    "name": "вася",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "андрей",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "рустам",
+    "scope": 6,
+    "textID": 18
+  },
+  {
+    "name": "магомед",
+    "scope": 2,
+    "textID": 18
+  },
+  {
+    "name": "михаил",
+    "scope": 1083,
+    "textID": 19
+  },
+  {
+    "name": "анна",
+    "scope": 4,
+    "textID": 19
+  },
+  {
+    "name": "надежда",
+    "scope": 16,
+    "textID": 19
+  },
+  {
+    "name": "люба",
+    "scope": 28,
+    "textID": 19
+  },
+  {
+    "name": "парета",
+    "scope": 50,
+    "textID": 19
+  },
+  {
+    "name": "ксарра",
+    "scope": 127,
+    "textID": 19
+  },
+  {
+    "name": "аба",
+    "scope": 6,
+    "textID": 19
+  },
+  {
+    "name": "аба",
+    "scope": 6,
+    "textID": 19
+  },
+  {
+    "name": "сантра",
+    "scope": 9,
+    "textID": 19
+  },
+  {
+    "name": "гера",
+    "scope": 5,
+    "textID": 19
+  },
+  {
+    "name": "брюс",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "мила",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "танер",
+    "scope": 32,
+    "textID": 19
+  },
+  {
+    "name": "маэта",
+    "scope": 212,
+    "textID": 19
+  },
+  {
+    "name": "земеля",
+    "scope": 4,
+    "textID": 19
+  },
+  {
+    "name": "раста",
+    "scope": 4,
+    "textID": 19
+  },
+  {
+    "name": "ронела",
+    "scope": 124,
+    "textID": 19
+  },
+  {
+    "name": "тагга",
+    "scope": 23,
+    "textID": 19
+  },
+  {
+    "name": "рауна",
+    "scope": 11,
+    "textID": 19
+  },
+  {
+    "name": "ларета",
+    "scope": 6,
+    "textID": 19
+  },
+  {
+    "name": "тиша",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "костя",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "абов",
+    "scope": 5,
+    "textID": 19
+  },
+  {
+    "name": "фридрих",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "имис",
+    "scope": 6,
+    "textID": 19
+  },
+  {
+    "name": "аретта",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "александр",
+    "scope": 5,
+    "textID": 19
+  },
+  {
+    "name": "прина",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "анелия",
+    "scope": 2,
+    "textID": 19
+  },
+  {
+    "name": "лилия",
+    "scope": 4,
+    "textID": 19
+  },
+  {
+    "name": "филипп",
+    "scope": 2,
+    "textID": 19
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "url": "samlib.ru\\1\\1_2_3\\hicsalta.shtml",
+    "name": "Hic salta",
+    "authorID": 0
+  },
+  {
+    "url": "samlib.ru\\2\\2dvch\\prodolzhenie.shtml",
+    "name": "Продолжение",
+    "authorID": 1
+  },
+  {
+    "url": "samlib.ru\\a\\ababaew_a_i\\oldwooman.shtml",
+    "name": "Старая женщина, которая ищет свою смерть.",
+    "authorID": 2
+  },
+  {
+    "url": "samlib.ru\\a\\abaj\\chtoeshezhdatxwrossijskomfewrale-1.shtml",
+    "name": "Что ещё ждать в Российском феврале?",
+    "authorID": 3
+  },
+  {
+    "url": "samlib.ru\\a\\abaturowa_n_m\\kartoshka.shtml",
+    "name": "Картошка",
+    "authorID": 4
+  },
+  {
+    "url": "samlib.ru\\a\\abbakumow_i_n\\geo_10-3.shtml",
+    "name": "\"Коллапсар\" атакует центры принятия решений",
+    "authorID": 5
+  },
+  {
+    "url": "samlib.ru\\a\\abbakumow_i_n\\literatura-6.shtml",
+    "name": "И Тогда туфелька придется впору",
+    "authorID": 5
+  },
+  {
+    "url": "samlib.ru\\a\\abdulhaew_a_r\\igra.shtml",
+    "name": "Игра",
+    "authorID": 6
+  },
+  {
+    "url": "samlib.ru\\a\\abow_a\\20190226netinemozhetbytxbeskonechnojzhiznidoc.shtml",
+    "name": "бесконечность",
+    "authorID": 7
+  },
+  {
+    "url": "samlib.ru\\a\\abramowa_w_a\\phahengis.shtml",
+    "name": "Фагенгис",
+    "authorID": 8
+  },
+  {
+    "url": "samlib.ru\\a\\abramow_iwan_alekseewich\\ohota.shtml",
+    "name": "Охота",
+    "authorID": 9
+  },
+  {
+    "url": "samlib.ru\\a\\adelaida\\roza.shtml",
+    "name": "Война Белой Розы",
+    "authorID": 10
+  },
+  {
+    "url": "samlib.ru\\a\\adelaida_d_g\\theoryofthenewworld.shtml",
+    "name": "Теория нового мира",
+    "authorID": 11
+  },
+  {
+    "url": "samlib.ru\\a\\adn\\tipichnyjpopadanec.shtml",
+    "name": "Лень- великая штука, она может сподвигнуть вас на многие деяния",
+    "authorID": 12
+  },
+  {
+    "url": "samlib.ru\\a\\aer_a\\wxjuga.shtml",
+    "name": "Вьюга",
+    "authorID": 13
+  },
+  {
+    "url": "samlib.ru\\a\\afanasxewa_o_i\\af_ob_id.shtml",
+    "name": "Что такое идеальный обзор?",
+    "authorID": 14
+  },
+  {
+    "url": "samlib.ru\\a\\ahmetshin_d_a\\aahmetshin_d_a89.shtml",
+    "name": "Зверёк и суета вокруг теней",
+    "authorID": 15
+  },
+  {
+    "url": "samlib.ru\\a\\aksajskij_w_a\\aksayskiy_about_communication_sam_eng.shtml",
+    "name": "Landauer's principle as a consequence of the Shannon-Hartley theorem or communication and information in the world of black bodies",
+    "authorID": 16
+  },
+  {
+    "url": "samlib.ru\\a\\aksenenko_s_i\\sa_v_sa.shtml",
+    "name": "Как С.А. служил в С A",
+    "authorID": 17
+  },
+  {
+    "url": "samlib.ru\\a\\aksenow_d_p\\phanta1_001.shtml",
+    "name": "Самозванец",
+    "authorID": 18
+  }
+]

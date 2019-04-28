@@ -2,55 +2,113 @@
 import downloadManager
 import os
 currentDir = os.getcwd() 
-dwnDir = currentDir + '/Files/DownloderApp/'
+dwnDir = currentDir + '\Files\DownloderApp'
 # downloadManager.download_manager('http://samlib.ru/', dwnDir)
 
 import codecs
 
-# folder = []
-# for i in os.walk(dwnDir):
-#     folder.append(i)
+authorsList = []
+textsList = []
+personesList = []
+wordsList = []
+allWordsList = []
+
+fwAuthors = open(currentDir + "\\authors.txt","w+")
+fwTexts = open(currentDir + "\\texts.txt","w+")
+fwPersons = open(currentDir + "\\persons.txt","w+")
 
 # === Run all files ===
-# for address, dirs, files in folder:
-#     for file in files:
-#         print(address+'/'+file)
-#         f = codecs.open(address+'/'+file, 'r')
+folders = []
+lenRun = 20
+for i in os.walk(dwnDir):
+    folders.append(i)
+flag = False
+for address, dirs, files in folders:
+    for file in files:
+        if lenRun == 0:
+            flag = True
+            break
+        currentAddress = address + '\\' + file
+        currentUrl = currentAddress.replace(dwnDir, '')
+        currentUrl = currentUrl.replace('\\', '', 1)
+        print(currentUrl)
+        f = codecs.open(address + '\\' + file, 'r')
 
-f = codecs.open(dwnDir + "\samlib.ru\index.html", 'r')
+        from bs4 import BeautifulSoup
+        import re
 
-# === Get all body text ===
-import getHtmlText
-text = getHtmlText.text_from_html(f)
-# print(text)
-# input()
+        soup = BeautifulSoup(f, 'html.parser')
 
+        import getHtmlText
+        import tokinizeBodyText
+        import countWrds
 
-# === Tokenize body text ===
-import tokinizeBodyText
-wordsFiltered = tokinizeBodyText.tokinize_text(text)
-# print(wordsFiltered)
+        def isTextPage(soup):
+            return (soup.find('center') != None) and (soup.body.center.h2 != None) and (soup.body.dd != None)
 
+        # === Get text name ===
+        def getAuthorName(soup):
+            authorNameTag = soup.body.div.h3
+            [s.extract() for s in authorNameTag(['small', 'br'])]
+            authorName = re.sub("^\s+|\n|\r|:|\s+$", "", authorNameTag.text)
+            return authorName
 
-# === Get initial form, count words ===
-from rutermextract import TermExtractor
-import pymorphy2
-import re, collections
+        # === Get text name ===
+        def getTextName(soup):
+            return soup.body.center.h2.text
 
-arr = collections.defaultdict(int)
-res_dict={}
-morph = pymorphy2.MorphAnalyzer()
+        # === Get all text words ===
+        def getTextWrds(soup):
+            allText = getHtmlText.text_from_html(soup.body.dd) 
+            wordsFiltered = tokinizeBodyText.tokinize_text(allText)        
+            return countWrds.count_wrds(wordsFiltered)
 
-te=[]
-for a in wordsFiltered:
-    try:
-        te.append(morph.parse(str(a))[0].inflect({'sing', 'nomn'}).word)
-    except Exception:
-        continue
+        if isTextPage(soup):
+            lenRun -= 1
+            authorName = getAuthorName(soup)
+            authorDict = {'name': authorName}
+            if authorDict not in authorsList:
+                authorsList.append(authorDict)
+            authorID = authorsList.index(authorDict)
 
-for t1 in te: arr[t1] += 1
+            textName = getTextName(soup)
+            textDict = {'url': currentUrl, 'name': textName, 'authorID': authorID}
+            textsList.append(textDict)
+            textID = textsList.index(textDict)
 
-l = lambda x: x[1]
-print( *sorted(arr.items(), key=l, reverse=True), '\n' )
+            allWords = getTextWrds(soup)
+            
+            # === Get names ===
+            import getNames
+            curPresList = getNames.get_names(allWords, textID)
+            personesList = personesList + curPresList
+            def isName(word):
+                for pers in curPresList:
+                    if word == pers['name']:
+                        return True
+                return False
 
+            for word, score in allWords.items():
+                if not isName(word):
+                    wordsList.append({'word': word, 'score': score, 'textID': textID})
+    if flag:
+        break
+
+import json
+with open(currentDir + '\\authors.txt', 'w') as file:
+     file.write(json.dumps(authorsList, indent=2, ensure_ascii=False))
+
+with open(currentDir + '\\texts.txt', 'w') as file:
+     file.write(json.dumps(textsList, indent=2, ensure_ascii=False))
+
+with open(currentDir + '\\persons.txt', 'w') as file:
+     file.write(json.dumps(personesList, indent=2, ensure_ascii=False))
+
+with open(currentDir + '\\words.txt', 'w') as file:
+     file.write(json.dumps(wordsList, indent=2, ensure_ascii=False))
+
+fwAuthors.close()
+fwTexts.close()
+fwPersons.close()
+print('complete')
 input()
